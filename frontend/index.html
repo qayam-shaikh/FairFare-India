@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FairFare India</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#/check">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 13.5 21 4l-4.5 16-4.2-5.3L3 13.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m12.3 14.7 4-6.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      FairFare
+    </a>
+    <nav aria-label="Pages">
+      <a href="#/check" data-page="check">Check a fare</a>
+      <a href="#/result" data-page="result">Result</a>
+      <a href="#/models" data-page="models">Models</a>
+      <a href="#/how" data-page="how">How it works</a>
+    </nav>
+    <span class="pill">Demo data · 2019 to 2025</span>
+  </header>
+
+  <main>
+    <!-- PAGE 1: check -->
+    <section class="page" id="page-check">
+      <div class="wizard">
+        <div class="card form">
+          <div class="form-head">
+            <ol class="steps" id="steps"></ol>
+            <button type="button" class="link" id="example">Try an example</button>
+          </div>
+          <div class="step-body" id="step-body"></div>
+          <div class="actions">
+            <button type="button" class="btn ghost" id="back">Back</button>
+            <button type="button" class="btn primary" id="next">Next</button>
+          </div>
+        </div>
+
+        <aside class="card ticket" aria-label="Your trip so far">
+          <div class="t-class">Fare check</div>
+          <div class="t-route">
+            <div><small>From</small><b id="t-from"></b></div>
+            <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M3 13.5 21 4l-4.5 16-4.2-5.3L3 13.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div><small>To</small><b id="t-to"></b></div>
+          </div>
+          <dl class="t-meta">
+            <div><dt>Date</dt><dd id="t-date"></dd></div>
+            <div><dt>Flight</dt><dd id="t-flight"></dd></div>
+            <div><dt>Your price</dt><dd id="t-price"></dd></div>
+          </dl>
+          <div class="t-out">
+            <small>You will get</small>
+            <div class="chips-out">
+              <span class="oc u"><i></i>Underpriced</span>
+              <span class="oc f"><i></i>Fair</span>
+              <span class="oc x"><i></i>Overpriced</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PAGE 2: result -->
+    <section class="page" id="page-result" hidden>
+      <div class="res">
+        <div class="verdict" id="r-verdict"></div>
+        <div class="res-main">
+          <div class="stats" id="r-stats"></div>
+          <div class="card chart-card">
+            <div class="chart-head">
+              <h2>Fares over time, same stops</h2>
+              <div class="legend" id="r-legend"></div>
+            </div>
+            <div class="chart" id="chart"></div>
+          </div>
+        </div>
+        <div class="res-foot">
+          <div class="bystops" id="r-stops"></div>
+          <form class="recheck" id="recheck">
+            <label for="re-price">Try another price</label>
+            <span class="money"><i>₹</i><input type="number" id="re-price" min="1" step="1" inputmode="numeric"></span>
+            <button class="btn primary sm" type="submit">Re-check</button>
+          </form>
+          <a class="btn ghost sm" href="#/check">New check</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: models -->
+    <section class="page" id="page-models" hidden>
+      <div class="models">
+        <div class="card">
+          <h2>Fare level forecast</h2>
+          <p class="hint-s" id="m-sub">Click a model in the table to forecast with it.</p>
+          <div class="legend" id="m-legend"></div>
+          <div class="m-chart" id="m-chart"></div>
+          <div class="m-foot" id="m-foot"></div>
+        </div>
+        <div class="card">
+          <h2>Which model is best?</h2>
+          <p class="hint-s">Ranked by accuracy, then simplicity. Error is averaged over 16 rolling tests of 13 weeks. Click a row to preview.</p>
+          <table class="tbl" id="m-table"></table>
+          <p class="m-note" id="m-note"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: how it works -->
+    <section class="page" id="page-how" hidden>
+      <div class="how">
+        <h1>How it works</h1>
+        <div class="how-steps">
+          <div class="card hs"><span class="hn">1</span>
+            <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><rect x="6" y="28" width="8" height="14" rx="2" fill="#9cc3f0"/><rect x="20" y="20" width="8" height="22" rx="2" fill="#5b9be0"/><rect x="34" y="8" width="8" height="34" rx="2" fill="#1f64b8"/></svg>
+            <h3>Stops set the price</h3><p>Fares rise with every extra stop. We start from the average fare for your stop count.</p></div>
+          <div class="card hs"><span class="hn">2</span>
+            <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><path d="M5 30 14 20l8 7 9-12 12 8" fill="none" stroke="#1f64b8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Track the fare level</h3><p>Weekly fares form a time series. Models forecast it, and the best one is used.</p></div>
+          <div class="card hs"><span class="hn">3</span>
+            <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true"><rect x="4" y="18" width="40" height="12" rx="4" fill="#c9dcf4"/><rect x="18" y="12" width="4" height="24" rx="2" fill="#1f64b8"/><rect x="28" y="12" width="4" height="24" rx="2" fill="#1f64b8"/></svg>
+            <h3>Set the fair range</h3><p>The range holds 8 in 10 fares the model had never seen.</p></div>
+        </div>
+
+        <h2>What moves fares in this data?</h2>
+        <div class="drivers" id="drivers"></div>
+
+        <div class="how-foot">
+          <span id="f-rows">15,000 fares</span><span>20 cities</span><span>1 Jan 2019 to 28 Dec 2025</span>
+          <a class="btn primary sm" href="#/check">Check a fare</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

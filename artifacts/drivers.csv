@@ -1,0 +1,12 @@
+factor,test,p_value,effect
+Number of stops,ANOVA on price,0.0,Moves price
+Airline,ANOVA after removing stops,0.0681665520533959,No effect
+Origin city,ANOVA after removing stops,0.9982913982628517,No effect
+Destination city,ANOVA after removing stops,0.7289148589393799,No effect
+Route,ANOVA after removing stops,0.4024915949078445,No effect
+Departure hour,ANOVA after removing stops,0.6388583821100087,No effect
+Extra info,ANOVA after removing stops,0.6894579155558578,No effect
+Month,ANOVA after removing stops,0.15856204888443204,No effect
+Year,ANOVA after removing stops,0.8730503918105171,No effect
+Day of week,ANOVA after removing stops,0.5824397369898457,No effect
+Duration,correlation after removing stops,0.6229392554488418,No effect
