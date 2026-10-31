@@ -1,4 +1,4 @@
-# FairFare India v2
+# FairFare India
 
 Checks whether a flight fare is **underpriced, fair or overpriced**, using 15,000 domestic fare listings (2019 to 2025, 20 cities).
 
